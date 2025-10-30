@@ -37,8 +37,8 @@ Built with **Python**, **Streamlit**, **LangChain**, **JobSpy**, and other open-
 2. **Create `secrets.toml`** in app/ folder:
    ```bash
    GMAIL_PASSWORD = "your_gmail_app_password_here"
-3. **Update sender email:  Replace "dummysender@gmail.com" with your own email in: `main.py,test.py,chains.py`** in app/ folder
-4. **Update test recipient email:  Replace "dummyrecruiting@gmail.com" with your own email in: `companies.json`**
+3. **Update sender email:  Replace "dummysender@gmail.com" with your own email in: `main.py`** in app/ folder
+4. **Update test recipient email:  Replace "dummyrecruiting@gmail.com" with your own email in: `companies.json,main.py`**
 5. **Installation** : Run these steps in PowerShell (Windows) or Terminal (Mac/Linux):
    ```bash
    GROQ_API_KEY=your_groq_key_here
