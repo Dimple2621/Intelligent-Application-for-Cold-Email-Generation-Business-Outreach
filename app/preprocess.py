@@ -1,5 +1,3 @@
-# preprocess.py
-
 import json
 from utils import sanitize_text
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -165,4 +163,5 @@ def preprocess_and_embed(jobs_file='app/data/jobs_cache.json', persist_dir='chro
         print(f"Error in preprocessing: {e}")
         with open('app/filter_log.txt', 'a') as f:
             f.write(f"{datetime.now().isoformat()} - Preprocessing error: {e}\n")
+
         raise
