@@ -39,7 +39,7 @@ def format_portfolio_links(portfolio_links):
     return selected_links
 
 # Send email to recruiter
-def send_email(to_email, subject, body, from_email="dimpleg2820@gmail.com"):
+def send_email(to_email, subject, body, from_email="dummysender@gmail.com"):
     cleaned_body = re.sub(r'^Subject:.*$\n?', '', body, flags=re.MULTILINE | re.IGNORECASE).strip()
     try:
         msg = MIMEMultipart()
@@ -68,7 +68,7 @@ portfolio.load_portfolio()
 companies_file = 'app/data/companies.json'
 with open(companies_file, 'r') as f:
     companies_data = json.load(f)
-company_emails = {comp['name']: comp.get('recruiting_email', 'dimplecs8530@gmail.com') for comp in companies_data['companies']}
+company_emails = {comp['name']: comp.get('recruiting_email', 'dummyrecruiting@gmail.com') for comp in companies_data['companies']}
 
 # Initialize session state
 if 'job_data' not in st.session_state:
@@ -169,7 +169,7 @@ if st.session_state.job_data and st.session_state.manual_email_body:
         'Unknown': 'recruiting@example.com'
     }
     recruiting = recruiting_emails.get(company_name, 'recruiting@example.com')
-    email_options = [recruiting, 'dimplecs8530@gmail.com']
+    email_options = [recruiting, 'dummyrecruiting@gmail.com']
     selected_email = st.selectbox("Select recipient email", email_options, key="manual_email_select")
     
     if st.button("📧 Send Email", key="manual_send_button"):
@@ -242,7 +242,7 @@ if os.path.exists(jobs_cache_file):
                             st.error(f"Error generating email: {e}")
 
                 # Send Email
-                recruiting_email = company_emails.get(selected_company, 'dimplecs8530@gmail.com')
+                recruiting_email = company_emails.get(selected_company, 'dummyrecruiting@gmail.com')
                 if st.session_state.batch_email_body:
                     if st.button("📧 Send Email", key="batch_send_button"):
                         with st.spinner("Sending email..."):
